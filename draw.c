@@ -55,11 +55,11 @@ int	draw_map(t_vars *data, t_data *img)
 			&img->line_length, &img->endian);
 	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/walls.xpm",
 			&data->img_width, &data->img_height);
-	data->player = mlx_xpm_file_to_image(data->mlx, "./images/pacman.xpm",
+	data->playerr = mlx_xpm_file_to_image(data->mlx, "./images/pacman.xpm",
 			&data->img_width, &data->img_height);
 	data->player_x = 100;
 	data->player_y = 100;
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->playerr,
 		data->player_x, data->player_y);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, 0, 0);
 	return (1);

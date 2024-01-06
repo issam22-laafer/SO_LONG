@@ -43,15 +43,15 @@ int	key_press(int keycode, t_vars *data)
 		exit(0);
 	}
 	else if (keycode == 126)
-		data->player_y -= PLAYER_SPEED;
+		data->player_y -= 200;
 	else if (keycode == 125)
-		data->player_y += PLAYER_SPEED;
+		data->player_y += 200;
 	else if (keycode == 123)
-		data->player_x -= PLAYER_SPEED;
+		data->player_x -= 200;
 	else if (keycode == 124)
-		data->player_x += PLAYER_SPEED;
+		data->player_x += 200;
 	mlx_clear_window(data->mlx, data->mlx_win);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->playerr,
 		data->player_x, data->player_y);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, 0, 0);
 	return data->count_mouves += 1;

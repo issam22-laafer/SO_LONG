@@ -21,7 +21,7 @@
 
 # define WIDTH 1000
 # define HEIGHT 800
-# define PLAYER_SPEED 10
+# define PLAYER_SPEED 200
 
 typedef struct s_data
 {
@@ -39,15 +39,20 @@ typedef struct s_vars
 	char	**map;
 	int		map_width;
 	int		map_height;
-	void	*walls;
-	void	*character;
-	void	*player;
-	void	*enemies[3];
-	int		img_width;
-	int		img_height;
-	int		player_x;
-	int		player_y;
-	int		count_mouves;
+	int		one;
+	int		zero;
+	int		character;
+	int		player;
+	int		exit;
+	int		colletives;
+	// int		img_width;
+	// int		img_height;
+	// int		player_x;
+	// int		player_y;
+	// int		count_mouves;
+	// void	*playerr;
+	// void	*walls;
+	// void	*enemies[3];
 }			t_vars;
 
 int			key_hook(int keycode, t_vars *vars);
@@ -55,4 +60,5 @@ int			close_window(t_vars *vars);
 int			key_press(int keycode, t_vars *data);
 void		ft_putstr(char *s);
 int			ft_strcmp(char *ptr1, char *ptr2);
+void		*ft_memset(void *ptr, int value, size_t num);
 #endif
