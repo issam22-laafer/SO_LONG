@@ -1,85 +1,86 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lissam <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 14:29:21 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/05 14:29:29 by lissam           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include "./get_next_line/get_next_line.h"
 #include "so_long.h"
 
-int	render_ghosts(t_vars *data)
+int	check__dimensions(t_vars *data)
 {
-	int	i;
+    
+}
 
-	data->enemies[0] = mlx_xpm_file_to_image(data->mlx,
-			"./images/green_ghost.xpm", &data->img_width, &data->img_height);
-	data->enemies[1] = mlx_xpm_file_to_image(data->mlx,
-			"./images/red_ghost.xpm", &data->img_width, &data->img_height);
-	data->enemies[2] = mlx_xpm_file_to_image(data->mlx,
-			"./images/yellow_ghost.xpm", &data->img_width, &data->img_height);
-	i = 0;
-	while (i < 3)
+int	map_checker(t_vars *data)
+{
+	check__dimensions(data);
+}
+
+int	get_map_height(char *path)
+{
+	int	height;
+	int	fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		return (0);
+	while (get_next_line(fd) != NULL)
 	{
-		mlx_put_image_to_window(data->mlx, data->mlx_win, data->enemies[i], i
-			* 100, i * 100);
+		height++;
+	}
+	close(fd);
+	return (height);
+}
+
+char	**get_map(char *path, t_vars *data)
+{
+	int	map_height;
+	int	i;
+	int	fd;
+
+	map_height = get_map_height(path);
+	i = 0;
+	fd = open(path, O_RDONLY);
+	if (map_height == 0 || fd < 0)
+	{
+		return (NULL);
+	}
+	data->map = (char **)malloc((map_height + 1) * sizeof(char *));
+	if (!data->map)
+	{
+		free(path);
+		return (NULL);
+	}
+	while (i < map_height)
+	{
+		data->map[i] = get_next_line(fd);
 		i++;
 	}
-	return (1);
+	return (data->map);
 }
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	check_path(char *path)
 {
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
-
-int	draw_map(t_vars *data, t_data *img)
-{
-	data->mlx = mlx_init();
-	if (!data->mlx)
-	{
-		free(data->mlx);
-		exit(1);
+	if (ft_strcmp(&path[ft_strlen(path) - 4], ".ber"))
 		return (0);
-	}
-	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Hello world!");
-	img->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
-			&img->line_length, &img->endian);
-	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/walls.xpm",
-			&data->img_width, &data->img_height);
-	data->player = mlx_xpm_file_to_image(data->mlx, "./images/pacman.xpm",
-			&data->img_width, &data->img_height);
-	data->player_x = 100;
-	data->player_y = 100;
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
-		data->player_x, data->player_y);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, 0, 0);
-	return (1);
+	else
+		return (1);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	t_vars	data;
-	t_data	img;
-	int		checker;
+	int		i;
+	char	**res;
 
-	checker = draw_map(&data, &img);
-	if (!checker)
+	if (argc == 1 || argc > 2 || !check_path(argv[1]) || !get_map(argv[1],
+			&data))
 	{
-		write(1, "OPS! SOMETHING WRONG", 34);
-		return (0);
+		ft_putstr("PATH OR NUMBER OF PARAMS PROBLEM");
+		return (1);
 	}
-	mlx_key_hook(data.mlx_win, key_hook, &data);
-	mlx_hook(data.mlx_win, 17, 0, close_window, &data);
-	mlx_hook(data.mlx_win, 2, 1L << 0, key_press, &data);
-	mlx_loop(data.mlx);
-	return (0);
+	get_map(argv[1], &data);
+	map_checker(&data);
+	// i = 0;
+	// res = get_map(argv[1], &data);
+	// while (res[i])
+	// {
+	// 	printf("%s", res[i]);
+	// 	i++;
+	// }
 }

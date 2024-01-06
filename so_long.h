@@ -13,6 +13,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -35,6 +36,9 @@ typedef struct s_vars
 {
 	void	*mlx;
 	void	*mlx_win;
+	char	**map;
+	int		map_width;
+	int		map_height;
 	void	*walls;
 	void	*character;
 	void	*player;
@@ -50,5 +54,5 @@ int			key_hook(int keycode, t_vars *vars);
 int			close_window(t_vars *vars);
 int			key_press(int keycode, t_vars *data);
 void		ft_putstr(char *s);
-int	ft_memcmp(char *ptr1,char *ptr2);
+int			ft_strcmp(char *ptr1, char *ptr2);
 #endif

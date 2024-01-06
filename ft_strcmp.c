@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-int	ft_memcmp(char *ptr1, char *ptr2)
+int	ft_strcmp(char *ptr1, char *ptr2)
 {
 	int i;
 

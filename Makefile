@@ -1,6 +1,6 @@
 NAME = draw
 
-SRC  = so_long.c hooks.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c maps_validation.c ft_putstr.c
+SRC  = draw.c hooks.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c maps_validation.c ft_putstr.c
 
 OBJ = $(SRC:.c=.o)
 
