@@ -45,7 +45,7 @@ int main(int argc , char *argv[])
         return 1;
     }
     // ft_putstr(&argv[1][ft_strlen(argv[1]) - 4]);
-    if(ft_memcmp(&argv[1][ft_strlen(argv[1]) - 4],".ber"))
+    if(ft_strcmp(&argv[1][ft_strlen(argv[1]) - 4],".ber"))
     {
         ft_putstr("PATH EXTENSION IS INCORRECT !!!");
         return 1;
@@ -60,3 +60,5 @@ int main(int argc , char *argv[])
         i++;
     }
 }
+
+
