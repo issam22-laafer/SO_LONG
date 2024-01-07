@@ -52,5 +52,5 @@ int	key_press(int keycode, t_vars *data)
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
 		data->player_x, data->player_y);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, 0, 0);
-	return data->count_mouves += 1;
+	return (data->count_mouves += 1);
 }

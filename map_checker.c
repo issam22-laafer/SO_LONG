@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_checker.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lissam <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/07 15:32:51 by lissam            #+#    #+#             */
+/*   Updated: 2024/01/07 15:32:54 by lissam           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "so_long.h"
+
 void	check__dimensions(t_vars *data)
 {
 	int	i;
@@ -18,6 +30,7 @@ void	check__dimensions(t_vars *data)
 		i++;
 	}
 }
+
 void	check_characters_number(t_vars *data)
 {
 	int	i;
@@ -45,6 +58,7 @@ void	check_characters_number(t_vars *data)
 		exit(1);
 	}
 }
+
 void	check_characters(t_vars *data)
 {
 	int	i;
@@ -72,8 +86,8 @@ void	check_characters(t_vars *data)
 
 void	check_walls(t_vars *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < data->map_height)
@@ -84,18 +98,19 @@ void	check_walls(t_vars *data)
 			if (i == 0 || i == data->map_height - 1)
 			{
 				if (data->map[i][j] != '1')
-                    print_walls_error();
+					print_walls_error();
 			}
 			if (j == 0 || j == data->map_width - 1)
 			{
 				if (data->map[i][j] != '1')
-                    print_walls_error();
+					print_walls_error();
 			}
 			j++;
 		}
 		i++;
 	}
 }
+
 void	map_checker(t_vars *data)
 {
 	check__dimensions(data);

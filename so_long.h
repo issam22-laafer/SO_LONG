@@ -50,6 +50,10 @@ typedef struct s_vars
 	int		player_y;
 	int		count_mouves;
 	void	*walls;
+	void	*floor;
+	void	*plyr;
+	void	*clc;
+	void	*ext;
 	void	*enemies[3];
 }			t_vars;
 
@@ -63,4 +67,9 @@ void		map_checker(t_vars *data);
 int			ft_strlen2(char *str);
 void		print_walls_error(void);
 void		draw(t_vars *data);
+void		draw_exit(t_vars *data);
+void		draw_player(t_vars *data);
+void		draw_collectives(t_vars *data);
+void		draw_floor(t_vars *data);
+void		draw_walls(t_vars *data);
 #endif
