@@ -39,47 +39,102 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
+void	draw_walls(t_vars *data)
+{
+	int	i;
+	int	j;
 
-int	draw_map(t_vars *data, t_data *img)
+	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/rockwall.xpm",
+			&data->img_width, &data->img_height);
+	i = 0;
+	while (i < data->map_height)
+	{
+		j = 0;
+		while (j < data->map_width)
+		{
+			if (data->map[i][j] == '1')
+			{
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, j
+					* 60, i * 60);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+void	draw_collectives(t_vars *data)
+{
+	int	i;
+	int	j;
+
+	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/banana.xpm",
+			&data->img_width, &data->img_height);
+	i = 0;
+	while (i < data->map_height)
+	{
+		j = 0;
+		while (j < data->map_width)
+		{
+			if (data->map[i][j] == 'C')
+			{
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, j
+					* 60, i * 60);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+void	draw_player(t_vars *data)
+{
+	int	i;
+	int	j;
+
+	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/kevin.xpm",
+			&data->img_width, &data->img_height);
+	i = 0;
+	while (i < data->map_height)
+	{
+		j = 0;
+		while (j < data->map_width)
+		{
+			if (data->map[i][j] == 'P')
+			{
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, j
+					* 60, i * 60);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+void	draw_map(t_vars *data, t_data *img)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
 	{
 		free(data->mlx);
 		exit(1);
-		return (0);
 	}
-	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Hello world!");
-	img->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->mlx_win = mlx_new_window(data->mlx, data->map_width * 60,
+			data->map_height * 60, "SO _ LONG _ GAME");
+	img->img = mlx_new_image(data->mlx, data->map_width * 60, data->map_height
+			* 60);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
-	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/walls.xpm",
-			&data->img_width, &data->img_height);
-	data->playerr = mlx_xpm_file_to_image(data->mlx, "./images/pacman.xpm",
-			&data->img_width, &data->img_height);
-	data->player_x = 100;
-	data->player_y = 100;
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->playerr,
-		data->player_x, data->player_y);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, 0, 0);
-	return (1);
+	draw_walls(data);
+	draw_collectives(data);
+	draw_player(data);
+	
 }
 
-int	main(void)
+void	draw(t_vars *data)
 {
-	t_vars	data;
 	t_data	img;
-	int		checker;
 
-	checker = draw_map(&data, &img);
-	if (!checker)
-	{
-		write(1, "OPS! SOMETHING WRONG", 34);
-		return (0);
-	}
-	mlx_key_hook(data.mlx_win, key_hook, &data);
-	mlx_hook(data.mlx_win, 17, 0, close_window, &data);
-	mlx_hook(data.mlx_win, 2, 1L << 0, key_press, &data);
-	mlx_loop(data.mlx);
-	return (0);
+	draw_map(data, &img);
+	mlx_key_hook(data->mlx_win, key_hook, &data);
+	mlx_hook(data->mlx_win, 17, 0, close_window, &data);
+	// mlx_hook(data->mlx_win, 2, 1L << 0, key_press, &data);
+	mlx_loop(data->mlx);
 }

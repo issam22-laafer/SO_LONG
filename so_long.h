@@ -19,8 +19,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 1000
-# define HEIGHT 800
 # define PLAYER_SPEED 200
 
 typedef struct s_data
@@ -42,17 +40,17 @@ typedef struct s_vars
 	int		one;
 	int		zero;
 	int		character;
-	int		player;
+	int		p;
 	int		exit;
 	int		colletives;
-	// int		img_width;
-	// int		img_height;
-	// int		player_x;
-	// int		player_y;
-	// int		count_mouves;
-	// void	*playerr;
-	// void	*walls;
-	// void	*enemies[3];
+	int		img_width;
+	int		img_height;
+	void	*player;
+	int		player_x;
+	int		player_y;
+	int		count_mouves;
+	void	*walls;
+	void	*enemies[3];
 }			t_vars;
 
 int			key_hook(int keycode, t_vars *vars);
@@ -61,4 +59,8 @@ int			key_press(int keycode, t_vars *data);
 void		ft_putstr(char *s);
 int			ft_strcmp(char *ptr1, char *ptr2);
 void		*ft_memset(void *ptr, int value, size_t num);
+void		map_checker(t_vars *data);
+int			ft_strlen2(char *str);
+void		print_walls_error(void);
+void		draw(t_vars *data);
 #endif

@@ -12,25 +12,23 @@
 
 #include "so_long.h"
 
-int	key_hook(int keycode, t_vars *vars)
+int	key_hook(int keycode, t_vars *data)
 {
 	printf("Hello from key_hook! %d \n", keycode);
 	if (keycode == 53 || keycode == 17)
 	{
-		mlx_destroy_window(vars->mlx, vars->mlx_win);
-		free(vars->mlx);
+		mlx_destroy_window(data->mlx, data->mlx_win);
+		free(data->mlx);
 		exit(0);
-		return (1);
 	}
 	return (1);
 }
 
-int	close_window(t_vars *vars)
+int	close_window(t_vars *data)
 {
-	mlx_destroy_window(vars->mlx, vars->mlx_win);
-	free(vars->mlx);
-	exit(0);
-	return (1);
+	mlx_destroy_window(data->mlx, data->mlx_win);
+	free(data->mlx);
+	exit(1);
 }
 
 int	key_press(int keycode, t_vars *data)
@@ -51,7 +49,7 @@ int	key_press(int keycode, t_vars *data)
 	else if (keycode == 124)
 		data->player_x += 200;
 	mlx_clear_window(data->mlx, data->mlx_win);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->playerr,
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
 		data->player_x, data->player_y);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, 0, 0);
 	return data->count_mouves += 1;
