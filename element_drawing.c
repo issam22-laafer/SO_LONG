@@ -79,6 +79,7 @@ void	draw_collectives(t_vars *data)
 					* 60, i * 60);
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->clc, j
 					* 60, i * 60);
+				
 			}
 			j++;
 		}
@@ -105,6 +106,8 @@ void	draw_player(t_vars *data)
 					* 60, i * 60);
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->plyr, j
 					* 60, i * 60);
+					data->player_x = i;
+					data->player_y = j;
 			}
 			j++;
 		}

@@ -65,9 +65,13 @@ char	**get_map(char *path, t_vars *data)
 	return (data->map);
 }
 
-int	check_path(char *path)
+void	check_path(char *path)
 {
-	return (ft_strcmp(&path[ft_strlen(path) - 4], ".ber") == 0);
+	if (ft_strcmp(&path[ft_strlen(path) - 4], ".ber") != 0)
+	{
+		ft_putstr("MAP PATH IMVALIDE");
+		exit(1);
+	}
 }
 
 int	main(int argc, char *argv[])
@@ -75,11 +79,12 @@ int	main(int argc, char *argv[])
 	t_vars	data;
 
 	ft_memset(&data, 0, sizeof(data));
-	if (argc != 2 || !check_path(argv[1]))
+	if (argc != 2)
 	{
 		ft_putstr("NUMBER OF PARAMS PROBLEM");
 		return (1);
 	}
+	check_path(argv[1]);
 	get_map(argv[1], &data);
 	map_checker(&data);
 	draw(&data);

@@ -34,23 +34,26 @@ int	close_window(t_vars *data)
 int	key_press(int keycode, t_vars *data)
 {
 	data->count_mouves = 0;
+	mlx_clear_window(data->mlx, data->mlx_win);
 	if (keycode == 53)
 	{
 		mlx_destroy_window(data->mlx, data->mlx_win);
 		free(data->mlx);
 		exit(0);
 	}
-	else if (keycode == 126)
-		data->player_y -= 200;
-	else if (keycode == 125)
-		data->player_y += 200;
-	else if (keycode == 123)
-		data->player_x -= 200;
-	else if (keycode == 124)
-		data->player_x += 200;
-	mlx_clear_window(data->mlx, data->mlx_win);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
+	else if (keycode == 13)
+		data->player_y -= 60;
+	else if (keycode == 1)
+		data->player_y += 60;
+	else if (keycode == 0)
+		data->player_x -= 60;
+	else if (keycode == 2)
+		data->player_x += 60;
+	draw_floor(data);
+	draw_walls(data);
+	draw_collectives(data);
+	draw_exit(data);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->plyr,
 		data->player_x, data->player_y);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->walls, 0, 0);
 	return (data->count_mouves += 1);
 }

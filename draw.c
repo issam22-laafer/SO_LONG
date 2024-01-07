@@ -46,8 +46,8 @@ void	draw(t_vars *data)
 	t_data	img;
 
 	draw_map(data, &img);
-	mlx_key_hook(data->mlx_win, key_hook, &data);
-	mlx_hook(data->mlx_win, 17, 0, close_window, &data);
-	mlx_hook(data->mlx_win, 2, 1L << 0, key_press, &data);
+	mlx_key_hook(data->mlx_win, key_hook, data);
+	mlx_hook(data->mlx_win, 17, 0, close_window, data);
+	mlx_hook(data->mlx_win, 2, 1L << 0, key_press, data);
 	mlx_loop(data->mlx);
 }
