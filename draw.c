@@ -20,6 +20,15 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+void	draw_elements(t_vars *data)
+{
+	draw_floor(data);
+	draw_walls(data);
+	draw_collectives(data);
+	draw_player(data);
+	draw_exit(data);
+}
+
 void	draw_map(t_vars *data, t_data *img)
 {
 	data->mlx = mlx_init();
@@ -34,11 +43,7 @@ void	draw_map(t_vars *data, t_data *img)
 			* 60);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
-	draw_floor(data);
-	draw_walls(data);
-	draw_collectives(data);
-	draw_player(data);
-	draw_exit(data);
+	draw_elements(data);
 }
 
 void	draw(t_vars *data)

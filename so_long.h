@@ -53,7 +53,7 @@ typedef struct s_vars
 	void	*player;
 	void	*clc;
 	void	*ext;
-	void	*enemies[3];
+	int		count_collectives;
 }			t_vars;
 
 int			key_hook(int keycode, t_vars *vars);
@@ -66,6 +66,7 @@ void		map_checker(t_vars *data);
 int			ft_strlen2(char *str);
 void		print_walls_error(void);
 void		draw(t_vars *data);
+void		draw_elements(t_vars *data);
 void		draw_exit(t_vars *data);
 void		draw_player(t_vars *data);
 void		draw_collectives(t_vars *data);
