@@ -92,7 +92,7 @@ void	draw_player(t_vars *data)
 	int	i;
 	int	j;
 
-	data->plyr = mlx_xpm_file_to_image(data->mlx, "./images/kevin.xpm",
+	data->player = mlx_xpm_file_to_image(data->mlx, "./images/kevin.xpm",
 			&data->img_width, &data->img_height);
 	i = 0;
 	while (i < data->map_height)
@@ -104,10 +104,10 @@ void	draw_player(t_vars *data)
 			{
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, j
 					* 60, i * 60);
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->plyr, j
+				mlx_put_image_to_window(data->mlx, data->mlx_win, data->player, j
 					* 60, i * 60);
-					data->player_x = i;
-					data->player_y = j;
+					data->player_x = j * 60;
+					data->player_y = i * 60;
 			}
 			j++;
 		}

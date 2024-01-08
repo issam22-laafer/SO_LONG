@@ -45,13 +45,12 @@ typedef struct s_vars
 	int		colletives;
 	int		img_width;
 	int		img_height;
-	void	*player;
 	int		player_x;
 	int		player_y;
 	int		count_mouves;
 	void	*walls;
 	void	*floor;
-	void	*plyr;
+	void	*player;
 	void	*clc;
 	void	*ext;
 	void	*enemies[3];
