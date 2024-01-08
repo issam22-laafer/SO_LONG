@@ -43,22 +43,16 @@ int	key_press(int keycode, t_vars *data)
 	}
 	else if (keycode == 13 && data->map[(data->player_y - 60)
 		/ 60][data->player_x / 60] != '1')
-		move_player(data,keycode);
+		move_player(data, keycode);
 	else if (keycode == 1 && data->map[(data->player_y + 60)
 		/ 60][data->player_x / 60] != '1')
-		move_player(data,keycode);
+		move_player(data, keycode);
 	else if (keycode == 0 && data->map[data->player_y / 60][(data->player_x
 			- 60) / 60] != '1')
-		move_player(data,keycode);
+		move_player(data, keycode);
 	else if (keycode == 2 && data->map[data->player_y / 60][(data->player_x
 			+ 60) / 60] != '1')
-		move_player(data,keycode);
-	draw_floor(data);
-	draw_walls(data);
-	draw_collectives(data);
-	draw_player(data);
-	draw_exit(data);
-	// mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
-	// 	data->player_x, data->player_y);
+		move_player(data, keycode);
+	draw_elements(data);
 	return (data->count_mouves += 1);
 }

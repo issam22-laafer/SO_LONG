@@ -17,8 +17,6 @@ void	draw_walls(t_vars *data)
 	int	i;
 	int	j;
 
-	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/oak_wall.xpm",
-			&data->img_width, &data->img_height);
 	i = 0;
 	while (i < data->map_height)
 	{
@@ -41,8 +39,6 @@ void	draw_floor(t_vars *data)
 	int	i;
 	int	j;
 
-	data->floor = mlx_xpm_file_to_image(data->mlx, "./images/white_floor.xpm",
-			&data->img_width, &data->img_height);
 	i = 0;
 	while (i < data->map_height)
 	{
@@ -65,8 +61,6 @@ void	draw_collectives(t_vars *data)
 	int	i;
 	int	j;
 
-	data->clc = mlx_xpm_file_to_image(data->mlx, "./images/banana.xpm",
-			&data->img_width, &data->img_height);
 	i = 0;
 	while (i < data->map_height)
 	{
@@ -91,8 +85,6 @@ void	draw_player(t_vars *data)
 	int	i;
 	int	j;
 
-	data->player = mlx_xpm_file_to_image(data->mlx, "./images/kevin.xpm",
-			&data->img_width, &data->img_height);
 	i = 0;
 	while (i < data->map_height)
 	{
@@ -119,8 +111,6 @@ void	draw_exit(t_vars *data)
 	int	i;
 	int	j;
 
-	data->ext = mlx_xpm_file_to_image(data->mlx, "./images/door_.xpm",
-			&data->img_width, &data->img_height);
 	i = 0;
 	while (i < data->map_height)
 	{

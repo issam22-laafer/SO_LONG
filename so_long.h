@@ -73,5 +73,7 @@ void		draw_collectives(t_vars *data);
 void		draw_floor(t_vars *data);
 void		draw_walls(t_vars *data);
 void		move_player(t_vars *data, int keycode);
+void		check_exit(t_vars *data);
+void		close_window_exit(t_vars *data);
 
 #endif

@@ -43,6 +43,16 @@ void	draw_map(t_vars *data, t_data *img)
 			* 60);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
+	data->ext = mlx_xpm_file_to_image(data->mlx, "./images/door_.xpm",
+			&data->img_width, &data->img_height);
+	data->player = mlx_xpm_file_to_image(data->mlx, "./images/kevin.xpm",
+			&data->img_width, &data->img_height);
+	data->clc = mlx_xpm_file_to_image(data->mlx, "./images/banana.xpm",
+			&data->img_width, &data->img_height);
+	data->floor = mlx_xpm_file_to_image(data->mlx, "./images/white_floor.xpm",
+			&data->img_width, &data->img_height);
+	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/oak_wall.xpm",
+			&data->img_width, &data->img_height);
 	draw_elements(data);
 }
 
