@@ -15,7 +15,7 @@
 int	key_hook(int keycode, t_vars *data)
 {
 	printf("Hello from key_hook! %d \n", keycode);
-	if (keycode == 53 || keycode == 17)
+	if (keycode == 53)
 	{
 		mlx_destroy_window(data->mlx, data->mlx_win);
 		free(data->mlx);
