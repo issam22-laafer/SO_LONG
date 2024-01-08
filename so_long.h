@@ -71,4 +71,6 @@ void		draw_player(t_vars *data);
 void		draw_collectives(t_vars *data);
 void		draw_floor(t_vars *data);
 void		draw_walls(t_vars *data);
+void		move_player(t_vars *data, int keycode);
+
 #endif

@@ -33,7 +33,6 @@ int	close_window(t_vars *data)
 
 int	key_press(int keycode, t_vars *data)
 {
-	// Clear the window at the beginning of the function
 	mlx_clear_window(data->mlx, data->mlx_win);
 	data->count_mouves = 0;
 	if (keycode == 53)
@@ -44,23 +43,15 @@ int	key_press(int keycode, t_vars *data)
 	}
 	else if (keycode == 13 && data->map[(data->player_y - 60)
 		/ 60][data->player_x / 60] != '1')
-	{
-		data->player_y -= 60;
-	}
+		move_player(data,keycode);
 	else if (keycode == 1 && data->map[(data->player_y + 60)
 		/ 60][data->player_x / 60] != '1')
-		data->player_y += 60;
+		move_player(data,keycode);
 	else if (keycode == 0 && data->map[data->player_y / 60][(data->player_x
 			- 60) / 60] != '1')
-		data->player_x -= 60;
+		move_player(data,keycode);
 	else if (keycode == 2 && data->map[data->player_y / 60][(data->player_x
 			+ 60) / 60] != '1')
-		data->player_x += 60;
-	draw_walls(data);
-	draw_collectives(data);
-	draw_exit(data);
-	draw_floor(data); 
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player,
-		data->player_x, data->player_y);
+		move_player(data,keycode);
 	return (data->count_mouves += 1);
 }
