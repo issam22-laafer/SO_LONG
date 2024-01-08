@@ -47,7 +47,7 @@ typedef struct s_vars
 	int		img_height;
 	int		player_x;
 	int		player_y;
-	int		count_mouves;
+	int		count_moves;
 	void	*walls;
 	void	*floor;
 	void	*player;
@@ -75,5 +75,7 @@ void		draw_walls(t_vars *data);
 void		move_player(t_vars *data, int keycode);
 void		check_exit(t_vars *data);
 void		close_window_exit(t_vars *data);
+void		moves_counter(t_vars *data);
+char		*ft_itoa(int n);
 
 #endif

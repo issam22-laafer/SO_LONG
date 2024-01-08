@@ -34,7 +34,6 @@ int	close_window(t_vars *data)
 int	key_press(int keycode, t_vars *data)
 {
 	mlx_clear_window(data->mlx, data->mlx_win);
-	data->count_mouves = 0;
 	if (keycode == 53)
 	{
 		mlx_destroy_window(data->mlx, data->mlx_win);
@@ -54,5 +53,6 @@ int	key_press(int keycode, t_vars *data)
 			+ 60) / 60] != '1')
 		move_player(data, keycode);
 	draw_elements(data);
-	return (data->count_mouves += 1);
+	moves_counter(data);
+	return (1);
 }

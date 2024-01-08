@@ -23,6 +23,7 @@ void	up(t_vars *data)
 	}
 	check_exit(data);
 	draw_elements(data);
+	data->count_moves += 1;
 }
 void	down(t_vars *data)
 {
@@ -46,6 +47,7 @@ void	down(t_vars *data)
 	}
 	check_exit(data);
 	draw_elements(data);
+	data->count_moves += 1;
 }
 void	right(t_vars *data)
 {
@@ -69,6 +71,7 @@ void	right(t_vars *data)
 	}
 	check_exit(data);
 	draw_elements(data);
+	data->count_moves += 1;
 }
 void	left(t_vars *data)
 {
@@ -92,6 +95,7 @@ void	left(t_vars *data)
 	}
 	check_exit(data);
 	draw_elements(data);
+	data->count_moves += 1;
 }
 
 void	move_player(t_vars *data, int keycode)

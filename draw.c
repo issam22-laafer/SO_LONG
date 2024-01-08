@@ -61,6 +61,10 @@ void	draw(t_vars *data)
 	t_data	img;
 
 	draw_map(data, &img);
+	mlx_string_put(data->mlx, data->mlx_win, 10, 10, 0x00FF0000, "Moves: ");
+    mlx_string_put(data->mlx, data->mlx_win, 90, 10, 0x00FF0000, ft_itoa(data->count_moves));
+	mlx_string_put(data->mlx, data->mlx_win, 10, 30, 0x00FF0000, "Number of bananas: ");
+    mlx_string_put(data->mlx, data->mlx_win, 200, 30, 0x00FF0000, ft_itoa(data->count_collectives));
 	mlx_key_hook(data->mlx_win, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, close_window, data);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_press, data);
