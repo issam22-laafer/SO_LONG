@@ -72,7 +72,7 @@ void	check_characters(t_vars *data)
 		{
 			if (data->map[i][j] != 'P' && data->map[i][j] != 'E'
 				&& data->map[i][j] != 'C' && data->map[i][j] != '1'
-				&& data->map[i][j] != '0')
+				&& data->map[i][j] != '0' && data->map[i][j] != 'N')
 			{
 				ft_putstr("MAP CONTAINE INVALIDE CHARACTER");
 				exit(1);

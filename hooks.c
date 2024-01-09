@@ -14,7 +14,7 @@
 
 int	key_hook(int keycode, t_vars *data)
 {
-	printf("Hello from key_hook! %d \n", keycode);
+	// printf("Hello from key_hook! %d \n", keycode);
 	if (keycode == 53)
 	{
 		mlx_destroy_window(data->mlx, data->mlx_win);
@@ -33,7 +33,7 @@ int	close_window(t_vars *data)
 
 int	key_press(int keycode, t_vars *data)
 {
-	mlx_clear_window(data->mlx, data->mlx_win);
+	// mlx_clear_window(data->mlx, data->mlx_win);
 	if (keycode == 53)
 	{
 		mlx_destroy_window(data->mlx, data->mlx_win);
@@ -52,7 +52,7 @@ int	key_press(int keycode, t_vars *data)
 	else if (keycode == 2 && data->map[data->player_y / 60][(data->player_x
 			+ 60) / 60] != '1')
 		move_player(data, keycode);
-	draw_elements(data);
+	// draw_elements(data);
 	moves_counter(data);
 	return (1);
 }

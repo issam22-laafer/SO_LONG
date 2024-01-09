@@ -21,14 +21,14 @@
 
 # define PLAYER_SPEED 200
 
-typedef struct s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_data;
+// typedef struct s_data
+// {
+// 	void	*img;
+// 	char	*addr;
+// 	int		bits_per_pixel;
+// 	int		line_length;
+// 	int		endian;
+// }			t_data;
 
 typedef struct s_vars
 {
@@ -53,6 +53,7 @@ typedef struct s_vars
 	void	*player;
 	void	*clc;
 	void	*ext;
+	void	*ennemie;
 	int		count_collectives;
 }			t_vars;
 
@@ -72,10 +73,13 @@ void		draw_player(t_vars *data);
 void		draw_collectives(t_vars *data);
 void		draw_floor(t_vars *data);
 void		draw_walls(t_vars *data);
+void		draw_ennemie(t_vars *data);
 void		move_player(t_vars *data, int keycode);
 void		check_exit(t_vars *data);
 void		close_window_exit(t_vars *data);
+void		close_window_lose(t_vars *data);
 void		moves_counter(t_vars *data);
 char		*ft_itoa(int n);
+void		draw_walls(t_vars *data);
 
 #endif

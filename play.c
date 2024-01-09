@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   play.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/09 09:45:17 by lissam            #+#    #+#             */
+/*   Updated: 2024/01/09 09:45:20 by lissam           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "so_long.h"
 
@@ -21,6 +32,8 @@ void	up(t_vars *data)
 		data->map[data->player_y / 60][data->player_x / 60] = '0';
 		close_window_exit(data);
 	}
+	else if (data->map[(data->player_y - 60) / 60][data->player_x / 60] == 'N')
+		close_window_lose(data);
 	check_exit(data);
 	draw_elements(data);
 	data->count_moves += 1;
@@ -45,6 +58,8 @@ void	down(t_vars *data)
 		data->map[data->player_y / 60][data->player_x / 60] = '0';
 		close_window_exit(data);
 	}
+	else if (data->map[(data->player_y + 60) / 60][data->player_x / 60] == 'N')
+		close_window_lose(data);
 	check_exit(data);
 	draw_elements(data);
 	data->count_moves += 1;
@@ -69,6 +84,8 @@ void	right(t_vars *data)
 		data->map[data->player_y / 60][data->player_x / 60] = '0';
 		close_window_exit(data);
 	}
+	else if (data->map[data->player_y / 60][(data->player_x + 60) / 60] == 'N')
+		close_window_lose(data);
 	check_exit(data);
 	draw_elements(data);
 	data->count_moves += 1;
@@ -93,6 +110,8 @@ void	left(t_vars *data)
 		data->map[data->player_y / 60][data->player_x / 60] = '0';
 		close_window_exit(data);
 	}
+	else if (data->map[data->player_y / 60][(data->player_x - 60) / 60] == 'N')
+		close_window_lose(data);
 	check_exit(data);
 	draw_elements(data);
 	data->count_moves += 1;

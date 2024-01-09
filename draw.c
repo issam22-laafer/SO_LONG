@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lissam <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:21 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/05 14:29:29 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/09 09:47:13 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
+// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+// {
+// 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
+// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+// 	*(unsigned int *)dst = color;
+// }
 
 void	draw_elements(t_vars *data)
 {
@@ -27,9 +27,10 @@ void	draw_elements(t_vars *data)
 	draw_collectives(data);
 	draw_player(data);
 	draw_exit(data);
+	draw_ennemie(data);
 }
 
-void	draw_map(t_vars *data, t_data *img)
+void	draw_map(t_vars *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
@@ -39,10 +40,11 @@ void	draw_map(t_vars *data, t_data *img)
 	}
 	data->mlx_win = mlx_new_window(data->mlx, data->map_width * 60,
 			data->map_height * 60, "SO _ LONG _ GAME");
-	img->img = mlx_new_image(data->mlx, data->map_width * 60, data->map_height
-			* 60);
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
-			&img->line_length, &img->endian);
+	// img->img = mlx_new_image(data->mlx, data->map_width * 60,
+			// data->map_height
+	// 		* 60);
+	// img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
+	// 		&img->line_length, &img->endian);
 	data->ext = mlx_xpm_file_to_image(data->mlx, "./images/door_.xpm",
 			&data->img_width, &data->img_height);
 	data->player = mlx_xpm_file_to_image(data->mlx, "./images/kevin.xpm",
@@ -53,14 +55,15 @@ void	draw_map(t_vars *data, t_data *img)
 			&data->img_width, &data->img_height);
 	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/oak_wall.xpm",
 			&data->img_width, &data->img_height);
+	data->ennemie = mlx_xpm_file_to_image(data->mlx, "./images/ennemie.xpm",
+			&data->img_width, &data->img_height);
 	draw_elements(data);
 }
 
 void	draw(t_vars *data)
 {
-	t_data	img;
-
-	draw_map(data, &img);
+	// t_data	img;
+	draw_map(data);
 	moves_counter(data);
 	mlx_key_hook(data->mlx_win, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, close_window, data);
