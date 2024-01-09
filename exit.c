@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:45:41 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 09:57:40 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/09 19:06:51 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,17 @@ void	close_window_lose(t_vars *data)
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	free(data->mlx);
 	exit(0);
+}
+
+void	freeMap2(t_vars *data)
+{
+	int i;
+
+	i = 0;
+	while (i < data->map_height)
+	{
+		free(data->map2[i]);
+		i++;
+	}
+	free(data->map2);
 }

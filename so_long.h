@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:49 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 16:23:55 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/09 19:13:21 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
 # include <string.h>
+# include <unistd.h>
 
 # define PLAYER_SPEED 200
 
@@ -58,7 +58,9 @@ int			ft_strcmp(char *ptr1, char *ptr2);
 void		*ft_memset(void *ptr, int value, size_t num);
 int			get_map_height(char *path);
 void		map_checker(t_vars *data);
-void		floodfill(t_vars *data);
+void		floodfill_collectives(t_vars *data);
+void		flood_fill_exit(t_vars *data);
+void		floodfill_exit(t_vars *data);
 int			ft_strlen2(char *str);
 void		print_walls_error(void);
 void		draw(t_vars *data);
@@ -74,6 +76,7 @@ void		check_exit(t_vars *data);
 void		check_images(t_vars *data);
 void		close_window_exit(t_vars *data);
 void		close_window_lose(t_vars *data);
+void		freeMap2(t_vars *data);
 void		moves_counter(t_vars *data);
 char		*ft_itoa(int n);
 void		draw_walls(t_vars *data);
