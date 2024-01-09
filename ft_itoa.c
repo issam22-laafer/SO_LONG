@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:45:48 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 09:45:50 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/09 09:50:15 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ static void	fill(char *p, long int nb, int len)
 
 char	*ft_itoa(int n)
 {
-	int len;
-	int i;
-	char *p;
-	long int nb;
+	int			len;
+	int			i;
+	char		*p;
+	long int	nb;
 
 	nb = n;
 	len = length_int(nb);

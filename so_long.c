@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lissam <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:32:20 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/07 15:32:23 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/09 09:54:57 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ char	**get_map(char *path, t_vars *data)
 	while (i < data->map_height)
 	{
 		data->map[i] = get_next_line(fd);
-		printf("added %d => %s\n", i, data->map[i]);
 		i++;
 	}
 	return (data->map);

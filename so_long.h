@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lissam <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:49 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/05 14:29:57 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/09 10:06:06 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,6 @@
 # include <unistd.h>
 
 # define PLAYER_SPEED 200
-
-// typedef struct s_data
-// {
-// 	void	*img;
-// 	char	*addr;
-// 	int		bits_per_pixel;
-// 	int		line_length;
-// 	int		endian;
-// }			t_data;
 
 typedef struct s_vars
 {
@@ -76,6 +67,7 @@ void		draw_walls(t_vars *data);
 void		draw_ennemie(t_vars *data);
 void		move_player(t_vars *data, int keycode);
 void		check_exit(t_vars *data);
+void		check_images(t_vars *data);
 void		close_window_exit(t_vars *data);
 void		close_window_lose(t_vars *data);
 void		moves_counter(t_vars *data);
