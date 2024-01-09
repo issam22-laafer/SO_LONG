@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:49 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 10:06:06 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/09 16:23:55 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <string.h>
 
 # define PLAYER_SPEED 200
 
@@ -26,6 +27,7 @@ typedef struct s_vars
 	void	*mlx;
 	void	*mlx_win;
 	char	**map;
+	char	**map2;
 	int		map_width;
 	int		map_height;
 	int		one;
@@ -54,7 +56,9 @@ int			key_press(int keycode, t_vars *data);
 void		ft_putstr(char *s);
 int			ft_strcmp(char *ptr1, char *ptr2);
 void		*ft_memset(void *ptr, int value, size_t num);
+int			get_map_height(char *path);
 void		map_checker(t_vars *data);
+void		floodfill(t_vars *data);
 int			ft_strlen2(char *str);
 void		print_walls_error(void);
 void		draw(t_vars *data);

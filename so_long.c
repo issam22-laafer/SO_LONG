@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:32:20 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 09:54:57 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/09 17:32:09 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ int	main(int argc, char *argv[])
 	check_path(argv[1]);
 	get_map(argv[1], &data);
 	map_checker(&data);
+	floodfill(&data);
 	draw(&data);
 }
