@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:49 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 19:13:21 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 09:21:39 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ typedef struct s_vars
 	int		count_collectives;
 }			t_vars;
 
-int			key_hook(int keycode, t_vars *vars);
+void		free_map1(t_vars *data);
+void		free_map2(t_vars *data);
+// int			key_hook(int keycode, t_vars *vars);
 int			close_window(t_vars *vars);
 int			key_press(int keycode, t_vars *data);
 void		ft_putstr(char *s);
@@ -62,7 +64,7 @@ void		floodfill_collectives(t_vars *data);
 void		flood_fill_exit(t_vars *data);
 void		floodfill_exit(t_vars *data);
 int			ft_strlen2(char *str);
-void		print_walls_error(void);
+void		print_walls_error(t_vars *data);
 void		draw(t_vars *data);
 void		draw_elements(t_vars *data);
 void		draw_exit(t_vars *data);

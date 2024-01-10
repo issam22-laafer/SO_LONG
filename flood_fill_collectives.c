@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:04:37 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 19:15:47 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 08:59:43 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ static void	duplicateMap(t_vars *data)
 
 	i = 0;
 	data->map2 = (char **)malloc(data->map_height * sizeof(char *));
+	if (!data->map2)
+	{
+		free_map1(data);
+		free_map2(data);
+		exit(1);
+	}
 	while (i < data->map_height)
 	{
 		data->map2[i] = (char *)malloc((data->map_width + 1) * sizeof(char));
@@ -82,7 +88,10 @@ static void	check_c(t_vars *data)
 		{
 			if (data->map2[i][j] == 'C')
 			{
-				printf("Error !! The path from the player to colletives is invalide\n");
+				ft_putstr("Error !! The path from the player to colletives is invalide\n");
+				free_map1(data);
+				free_map2(data);
+				system("leaks so_long");
 				exit(1);
 			}
 			j++;
@@ -90,7 +99,6 @@ static void	check_c(t_vars *data)
 		i++;
 	}
 }
-
 
 void	floodfill_collectives(t_vars *data)
 {
@@ -100,5 +108,5 @@ void	floodfill_collectives(t_vars *data)
 	duplicateMap(data);
 	fill(data, x, y);
 	check_c(data);
-	freeMap2(data);
+	free_map2(data);
 }

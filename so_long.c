@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:32:20 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 19:13:48 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 09:43:30 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	get_map_height(char *path)
 {
 	int	height;
 	int	fd;
+	char	*line;
 
 	fd = open(path, O_RDONLY);
 	height = 0;
@@ -25,9 +26,12 @@ int	get_map_height(char *path)
 		ft_putstr("MAP PATH IMVALIDE");
 		exit(1);
 	}
-	while (get_next_line(fd) != NULL)
+	line = get_next_line(fd);
+	while (line)
 	{
 		height++;
+		free(line);
+		line = get_next_line(fd);
 	}
 	if (height == 0)
 	{
@@ -38,30 +42,32 @@ int	get_map_height(char *path)
 	return (height);
 }
 
-char	**get_map(char *path, t_vars *data)
+void	get_map(char *path, t_vars *data)
 {
 	int	i;
 	int	fd;
+	char	*line;
 
 	data->map_height = get_map_height(path);
 	i = 0;
 	fd = open(path, O_RDONLY);
 	if (fd < 0 || data->map_height == 0)
 	{
-		return (NULL);
+		exit(1);
 	}
-	data->map = (char **)malloc((data->map_height + 1) * sizeof(char *));
+	data->map = (char **)malloc((data->map_height) * sizeof(char *));
 	if (!data->map)
 	{
-		free(path);
-		return (NULL);
+		free_map1(data);
+		exit(1);
 	}
-	while (i < data->map_height)
+	line = get_next_line(fd);
+	while (i < data->map_height && line)
 	{
-		data->map[i] = get_next_line(fd);
+		data->map[i] = line;
+		line = get_next_line(fd);
 		i++;
 	}
-	return (data->map);
 }
 
 void	check_path(char *path)
@@ -89,4 +95,5 @@ int	main(int argc, char *argv[])
 	floodfill_collectives(&data);
 	flood_fill_exit(&data);
 	draw(&data);
+	free_map1(&data);
 }

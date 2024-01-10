@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:05:12 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 10:07:28 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 09:51:10 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,34 @@ void	check_images(t_vars *data)
 		|| !data->floor || !data->walls || !data->ennemie)
 	{
 		ft_putstr("Error in images");
-		free(data->mlx);
+		free_map1(data);
+		system("leaks so_long");
 		exit(1);
 	}
+}
+
+void	free_map1(t_vars *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->map_height)
+	{
+		free(data->map[i]);
+		i++;
+	}
+	free(data->map);
+}
+
+void	free_map2(t_vars *data)
+{
+	int i;
+
+	i = 0;
+	while (i < data->map_height)
+	{
+		free(data->map2[i]);
+		i++;
+	}
+	free(data->map2);
 }

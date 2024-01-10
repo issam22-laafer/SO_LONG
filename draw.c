@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:21 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 10:06:16 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 09:21:28 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	draw(t_vars *data)
 {
 	draw_map(data);
 	moves_counter(data);
-	mlx_key_hook(data->mlx_win, key_hook, data);
+	// mlx_key_hook(data->mlx_win, key_hook, data);
 	mlx_hook(data->mlx_win, 17, 0, close_window, data);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_press, data);
 	mlx_loop(data->mlx);

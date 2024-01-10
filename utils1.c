@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lissam <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:36:52 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/07 15:36:55 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 09:51:00 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int	ft_strlen2(char *str)
 	return (i);
 }
 
-void	print_walls_error(void)
+void	print_walls_error(t_vars *data)
 {
 	ft_putstr("MAP BOUNDARY WALLS PROBLEM");
+	free_map1(data);
+	system("leaks so_long");
 	exit(1);
 }
 
