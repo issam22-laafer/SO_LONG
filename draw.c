@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:21 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 17:55:13 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 21:18:58 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	free_images(t_vars *data)
 {
 	ft_putstr("Error in images");
 	free_map1(data);
-	system("leaks so_long");
 	exit(1);
 }
 

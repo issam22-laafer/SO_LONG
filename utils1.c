@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:36:52 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 09:51:00 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 21:18:11 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	print_walls_error(t_vars *data)
 {
 	ft_putstr("MAP BOUNDARY WALLS PROBLEM");
 	free_map1(data);
-	system("leaks so_long");
 	exit(1);
 }
 

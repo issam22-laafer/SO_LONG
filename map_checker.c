@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:32:51 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 17:53:45 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 21:18:50 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	check__dimensions(t_vars *data)
 		{
 			ft_putstr("MAP DIMENSIONS PROBLEM / MAP SHOULD BE RECTANGULAR");
 			free_map1(data);
-			system("leaks so_long");
 			exit(1);
 		}
 		i++;
@@ -58,7 +57,6 @@ void	check_characters_number(t_vars *data)
 	{
 		ft_putstr("PLAYER / EXIT / COLLECTIVES PROBLEM");
 		free_map1(data);
-		system("leaks so_long");
 		exit(1);
 	}
 }
@@ -80,7 +78,6 @@ void	check_characters(t_vars *data)
 			{
 				ft_putstr("MAP CONTAINE INVALIDE CHARACTER");
 				free_map1(data);
-				system("leaks so_long");
 				exit(1);
 			}
 			j++;

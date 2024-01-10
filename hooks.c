@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:39 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 17:54:45 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 21:18:33 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	close_window(t_vars *data)
 {
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	free_map1(data);
-	system("leaks so_long");
 	exit(1);
 	return (0);
 }
@@ -27,7 +26,6 @@ int	key_press(int keycode, t_vars *data)
 	{
 		mlx_destroy_window(data->mlx, data->mlx_win);
 		free_map1(data);
-		system("leaks so_long");
 		exit(1);
 	}
 	else if (keycode == 13 && data->map[(data->player_y - 60)

@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:04:37 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 17:58:25 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 21:18:53 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ static void	check_c(t_vars *data)
 				ft_putstr("Colletives path is invalide\n");
 				free_map1(data);
 				free_map2(data);
-				system("leaks so_long");
 				exit(1);
 			}
 			j++;
