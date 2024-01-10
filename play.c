@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:45:17 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/09 09:51:16 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:52:00 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,17 +124,27 @@ void	move_player(t_vars *data, int keycode)
 {
 	mlx_clear_window(data->mlx, data->mlx_win);
 	if (keycode == 13)
+	{
+		data->player = mlx_xpm_file_to_image(data->mlx, "./images/kevin_up.xpm",
+				&data->img_width, &data->img_height);
 		up(data);
+	}
 	else if (keycode == 1)
 	{
+		data->player = mlx_xpm_file_to_image(data->mlx,
+				"./images/kevin_down.xpm", &data->img_width, &data->img_height);
 		down(data);
 	}
 	else if (keycode == 0)
 	{
+		data->player = mlx_xpm_file_to_image(data->mlx,
+				"./images/kevin_left.xpm", &data->img_width, &data->img_height);
 		left(data);
 	}
 	else if (keycode == 2)
 	{
+		data->player = mlx_xpm_file_to_image(data->mlx, "./images/kevin.xpm",
+				&data->img_width, &data->img_height);
 		right(data);
 	}
 }

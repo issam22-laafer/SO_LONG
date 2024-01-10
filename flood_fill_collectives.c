@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:04:37 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 08:59:43 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:58:25 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	get_player_position(int *x, int *y, t_vars *data)
 	}
 }
 
-static void	duplicateMap(t_vars *data)
+static void	duplicatemap(t_vars *data)
 {
 	int	i;
 	int	j;
@@ -88,7 +88,7 @@ static void	check_c(t_vars *data)
 		{
 			if (data->map2[i][j] == 'C')
 			{
-				ft_putstr("Error !! The path from the player to colletives is invalide\n");
+				ft_putstr("Colletives path is invalide\n");
 				free_map1(data);
 				free_map2(data);
 				system("leaks so_long");
@@ -102,10 +102,11 @@ static void	check_c(t_vars *data)
 
 void	floodfill_collectives(t_vars *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
+
 	get_player_position(&x, &y, data);
-	duplicateMap(data);
+	duplicatemap(data);
 	fill(data, x, y);
 	check_c(data);
 	free_map2(data);

@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:49 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 09:21:39 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:52:09 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_vars
 
 void		free_map1(t_vars *data);
 void		free_map2(t_vars *data);
-// int			key_hook(int keycode, t_vars *vars);
 int			close_window(t_vars *vars);
 int			key_press(int keycode, t_vars *data);
 void		ft_putstr(char *s);

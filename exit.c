@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:45:41 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 09:49:18 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:51:12 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ void	close_window_lose(t_vars *data)
 	system("leaks so_long");
 	exit(1);
 }
-

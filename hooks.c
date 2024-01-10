@@ -6,23 +6,11 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:39 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 09:21:25 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:54:45 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// int	key_hook(int keycode, t_vars *data)
-// {
-// 	if (keycode == 53)
-// 	{
-// 		mlx_destroy_window(data->mlx, data->mlx_win);
-// 		free_map1(data);
-// 		system("leaks so_long");
-// 		exit(1);
-// 	}
-// 	return (0);
-// }
 
 int	close_window(t_vars *data)
 {
@@ -43,10 +31,10 @@ int	key_press(int keycode, t_vars *data)
 		exit(1);
 	}
 	else if (keycode == 13 && data->map[(data->player_y - 60)
-		/ 60][data->player_x / 60] != '1')
+			/ 60][data->player_x / 60] != '1')
 		move_player(data, keycode);
 	else if (keycode == 1 && data->map[(data->player_y + 60)
-		/ 60][data->player_x / 60] != '1')
+			/ 60][data->player_x / 60] != '1')
 		move_player(data, keycode);
 	else if (keycode == 0 && data->map[data->player_y / 60][(data->player_x
 			- 60) / 60] != '1')

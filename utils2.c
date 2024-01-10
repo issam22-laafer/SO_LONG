@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:05:12 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 09:51:10 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:53:32 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	free_map1(t_vars *data)
 
 void	free_map2(t_vars *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < data->map_height)

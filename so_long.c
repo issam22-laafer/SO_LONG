@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:32:20 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 09:43:30 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/10 17:52:04 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	get_map_height(char *path)
 {
-	int	height;
-	int	fd;
+	int		height;
+	int		fd;
 	char	*line;
 
 	fd = open(path, O_RDONLY);
@@ -44,8 +44,8 @@ int	get_map_height(char *path)
 
 void	get_map(char *path, t_vars *data)
 {
-	int	i;
-	int	fd;
+	int		i;
+	int		fd;
 	char	*line;
 
 	data->map_height = get_map_height(path);
