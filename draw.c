@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:21 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 21:18:58 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/11 09:30:32 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	free_images(t_vars *data)
 {
 	ft_putstr("Error in images");
 	free_map1(data);
+	system("leaks so_long");
 	exit(1);
 }
 
@@ -69,7 +70,7 @@ void	draw_map(t_vars *data)
 			&data->img_width, &data->img_height);
 	data->walls = mlx_xpm_file_to_image(data->mlx, "./images/oak_wall.xpm",
 			&data->img_width, &data->img_height);
-	data->ennemie = mlx_xpm_file_to_image(data->mlx, "./images/ennemie.xpm",
+	data->ennemie = mlx_xpm_file_to_image(data->mlx, "./images/ennemie_1.xpm",
 			&data->img_width, &data->img_height);
 	check_images(data);
 	check_player_images(data);
@@ -80,6 +81,7 @@ void	draw(t_vars *data)
 {
 	draw_map(data);
 	moves_counter(data);
+	mlx_loop_hook(data->mlx, render_ennemie, data);
 	mlx_hook(data->mlx_win, 17, 0, close_window, data);
 	mlx_hook(data->mlx_win, 2, 1L << 0, key_press, data);
 	mlx_loop(data->mlx);

@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:49 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 21:17:17 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/11 09:10:35 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_vars
 
 void		free_map1(t_vars *data);
 void		free_map2(t_vars *data);
+void		free_images(t_vars *data);
 int			close_window(t_vars *vars);
 int			key_press(int keycode, t_vars *data);
 void		ft_putstr(char *s);
@@ -81,5 +82,5 @@ void		freeMap2(t_vars *data);
 void		moves_counter(t_vars *data);
 char		*ft_itoa(int n);
 void		draw_walls(t_vars *data);
-
+int			render_ennemie(t_vars *data);
 #endif
