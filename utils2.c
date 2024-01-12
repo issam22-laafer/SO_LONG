@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:05:12 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/10 21:59:28 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/12 09:31:46 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,11 @@ void	free_map2(t_vars *data)
 		i++;
 	}
 	free(data->map2);
+}
+
+void	free_images(t_vars *data)
+{
+	ft_putstr("Error in images");
+	free_map1(data);
+	exit(1);
 }
