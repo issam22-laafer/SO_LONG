@@ -6,7 +6,7 @@
 /*   By: lissam <lissam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:29:21 by lissam            #+#    #+#             */
-/*   Updated: 2024/01/12 09:31:13 by lissam           ###   ########.fr       */
+/*   Updated: 2024/01/13 08:34:39 by lissam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,6 @@ void	draw(t_vars *data)
 	moves_counter(data);
 	mlx_loop_hook(data->mlx, render_ennemie, data);
 	mlx_hook(data->mlx_win, 17, 0, close_window, data);
-	mlx_hook(data->mlx_win, 2, 0, key_press, data);
+	mlx_hook(data->mlx_win, 2, 1L << 0, key_press, data);
 	mlx_loop(data->mlx);
 }
